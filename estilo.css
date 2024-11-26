@@ -1,0 +1,96 @@
+/* estilo.css */
+
+/* Estilização geral do corpo da página */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    position: relative;
+}
+
+/* Contêiner principal da cartela de bingo */
+#cartela-bingo {
+    text-align: center;
+}
+
+/* Estilo do título */
+h1 {
+    margin-bottom: 20px;
+}
+
+/* Grade da cartela de bingo */
+.grade {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 colunas */
+    grid-template-rows: repeat(5, 1fr);   /* 5 linhas */
+    grid-gap: 5px;                        /* Espaço entre as células */
+    width: 300px;                         /* Largura da grade */
+    height: 300px;                        /* Altura da grade */
+    margin: 0 auto;
+}
+
+/* Estilização das células */
+.celula {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ddd;               /* Bordas das células */
+    background-color: #fff;               /* Cor de fundo padrão */
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;                      /* Ícone de cursor para indicar interatividade */
+    user-select: none;                    /* Previne seleção de texto */
+}
+
+/* Célula especial (ícone no centro) */
+.celula.icone {
+    font-size: 24px;
+    color: #888;
+    pointer-events: none;                 /* Previne interatividade */
+}
+
+/* Célula marcada */
+.celula.marcada {
+    background-color: #ffd700;           /* Cor de fundo ao marcar */
+    color: #000;                         /* Cor do texto */
+}
+
+/* Indicação de "Bingo!" */
+#bingo-indicador {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    text-align: center;
+}
+
+#bingo-indicador.oculto {
+    display: none; /* Oculta o indicador */
+}
+
+#texto-bingo {
+    color: yellow;                        /* Cor da fonte */
+    font-size: 100px;                     /* Tamanho da fonte */
+    animation: piscar 1s infinite;        /* Animação de piscar */
+}
+
+/* Animação de piscar */
+@keyframes piscar {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Desabilita o clique nas células */
+.desabilitado {
+    pointer-events: none;                 /* Remove interatividade */
+    background-color: #e0e0e0;            /* Indica que as células estão desabilitadas */
+}
